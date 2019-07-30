@@ -20,6 +20,8 @@ module App
     option :directory, :type => :string, :aliases => "-d", :default => "."
     option :output_type, :type => :string, :aliases => "-o", :default => "csv"
     def init
+      Dir.mkdir "output/" unless File.exist? "output/"
+
       output_type = options[:output_type]
       directory = options[:directory]
 
