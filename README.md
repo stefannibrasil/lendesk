@@ -31,6 +31,8 @@ To run the command with the aliases, run:
 
 `app export -d your_directory -o html`
 
+**Tip**: `app help export` provides a full description of the `export` task, including its optional parameters.
+
 ### Output
 
 Both CSV and HTML files are stored in the `output/` folder.

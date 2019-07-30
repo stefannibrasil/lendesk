@@ -15,7 +15,7 @@ module App
       true
     end
 
-    desc "export", "exports images gps exif data into a CSV file"
+    desc "export", "exports images gps exif data from a directory into a CSV file"
     option :directory, :type => :string, :aliases => "-d", :default => "."
     option :output_type, :type => :string, :aliases => "-o", :default => "csv"
     def export
