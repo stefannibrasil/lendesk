@@ -18,7 +18,7 @@ This gem has not been released, so in order to run it locally, follow these step
 
 ## Usage
 
-`app init`
+`app export`
 
 Running the command above will scan the current directory (folder `gps_images/`) and generates an CSV file with the Exif data.
 
@@ -29,7 +29,7 @@ This command can also be run with two optional flags:
 
 To run the command with the aliases, run:
 
-`app init -d your_directory -o html`
+`app export -d your_directory -o html`
 
 ### Output
 

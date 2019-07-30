@@ -15,11 +15,10 @@ module App
       true
     end
 
-    # how to run: app init --directory gps_images --output_type  html     
-    desc "init", "a task that writes images gps exif data into a CSV or HTML file"
+    desc "export", "exports images gps exif data into a CSV file"
     option :directory, :type => :string, :aliases => "-d", :default => "."
     option :output_type, :type => :string, :aliases => "-o", :default => "csv"
-    def init
+    def export
       Dir.mkdir "output/" unless File.exist? "output/"
 
       output_type = options[:output_type]
