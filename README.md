@@ -10,6 +10,16 @@ The dependencies for this app are [Exif](https://github.com/tonytonyjan/exif), t
 
 ## Installation
 
+This project assumes you have a ruby environment setup in your machine, like having a ruby version and Bundler installed. If that's the case, you can skip these 3 first commands.
+
+To install ruby and Bundler, please run these steps:
+
+- [install ruby](https://github.com/asdf-vm/asdf-ruby), setting the version to `2.6.1`
+
+- install [Bundler](https://bundler.io/) running `gem install bundler`
+
+- run `bundle install`
+
 This gem has not been released, so in order to run it locally, follow these steps:
 
 1 - `git clone git@github.com:stefannibrasil/lendesk.git`
