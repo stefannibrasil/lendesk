@@ -24,7 +24,7 @@ This gem has not been released, so in order to run it locally, follow these step
 
 1 - `git clone git@github.com:stefannibrasil/lendesk.git`
 
-2 - `bin/setup` to install dependencies.
+2 - `cd lendesk && bin/setup` to install dependencies.
 
 3 - `rake install` to install this gem onto your local machine.
 
