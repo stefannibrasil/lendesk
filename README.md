@@ -13,7 +13,9 @@ The dependencies for this app are [Exif](https://github.com/tonytonyjan/exif), t
 This gem has not been released, so in order to run it locally, follow these steps:
 
 1 - `git clone git@github.com:stefannibrasil/lendesk.git`
+
 2 - `bin/setup` to install dependencies.
+
 3 - `rake install` to install this gem onto your local machine.
 
 ## Usage
@@ -25,6 +27,7 @@ Running the command above will scan the current directory (folder `gps_images/`)
 This command can also be run with two optional flags:
 
 `-d` - alias for optional `directory`
+
 `-o` - alias for optional `output_type`
 
 To run the command with the aliases, run:
