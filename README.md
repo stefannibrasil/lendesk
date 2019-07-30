@@ -8,9 +8,7 @@ This app was created using [Thor](http://whatisthor.com/).Thor is a very robust 
 
 The dependencies for this app are [Exif](https://github.com/tonytonyjan/exif), the fastest Ruby EXIF reader,  and [Builder](https://github.com/jimweirich/builder), a simple way to create XML markup and data structures.
 
-## Usage
-
-The ruby version is `2.6.1`.
+## Installation
 
 This gem has not been released, so in order to run it locally, please run:
 
@@ -19,15 +17,32 @@ This gem has not been released, so in order to run it locally, please run:
 
 Now, to install this gem onto your local machine, run `bundle exec rake install`.
 
-Make the script executable:
+<!-- Make the script executable:
 
-`chmod a+x app.rb`
+`chmod a+x app.rb` -->
+
+The ruby version is `2.6.1`.
+
+## Usage
 
 This gem is a CLI that allows the user to pass two optional fields: a directory with jpg images to be extracted their exif gps data and what type of file the info will be written, CSV or HTML.
 
 With no parameters, it scanns from the current directory and generates an CSV file with the Exif data, if any.
 
-`bundle exec exe/app init -d gps_images -o html`
+The latitude and longitude values are in the Exif format. EXIF stores GPS coords as rational64u that can be read like:
+
+`[(50/1), (137/25), (0/1)]` => `Lat: 50° 137.25' 0"`
+`[(122/1), (2837/50), (0/1)]</td>` => `Lng:  122° 2837.50' 0"`
+
+### How to call it
+
+In this directory, we have available a folder called `gps_images` with some jpg images in it. If you want to read that, you can run:
+
+`bundle exec exe/app init`
+
+that will scan the current directory and outpus a CSV file.
+
+### Optional parameters
 
 The app can be used by running `app init -d gps_images -o html`
 
