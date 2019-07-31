@@ -64,10 +64,12 @@ The latitude and longitude output values are in the EXIF format. EXIF stores GPS
 
 `[(122/1), (2837/50), (0/1)]</td>` => `Lng:  122° 2837.50' 0"`
 
-### Todo
+## Tests
 
-- [] Add more tests
-- [] Convert gps degrees into coordinates
-- [] Use Design Patterns for creating different types of files
+run `rake test`
 
-`rake test` run the tests.
+## Todo
+
+- Add more tests
+- Convert gps degrees into coordinates
+- Use Design Patterns for having a more reusable code
