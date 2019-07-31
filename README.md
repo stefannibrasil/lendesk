@@ -1,6 +1,6 @@
 # About this gem
 
-This command line application recursively reads all of the images from the supplied directory of images (`images/gps/`), extracts their EXIF GPS data (longitude and latitude), and then writes the name of that image and any GPS co-ordinates it finds to a CSV file.
+This command line application recursively reads all of the images from the supplied directory of images (`gps_images/`), extracts their EXIF GPS data (longitude and latitude), and then writes the name of that image and any GPS co-ordinates it finds to a CSV file.
 
 It allows the user to pass two optional fields: a directory and what type of file the info will be written, CSV or HTML.
 
@@ -9,6 +9,8 @@ This app was created using [Thor](http://whatisthor.com/).Thor is a very robust 
 The dependencies for this app are [Exif](https://github.com/tonytonyjan/exif), the fastest Ruby EXIF reader,  and [Builder](https://github.com/jimweirich/builder), a simple way to create XML markup and data structures.
 
 ## Installation
+
+This project depends on [libexif](https://libexif.github.io). If you're on a mac, run `brew install libexif` to install it.
 
 This project assumes you have a ruby environment setup in your machine, like having a ruby version and Bundler installed. If that's the case, you can skip these 3 first commands.
 
@@ -32,23 +34,29 @@ This gem has not been released, so in order to run it locally, follow these step
 
 `app export`
 
-Running the command above will scan the current directory (folder `gps_images/`) and generates an CSV file with the Exif data.
+Running the command above will scan the default directory (folder `gps_images/`) and generates an CSV file with the Exif data.
 
 This command can also be run with two optional flags:
 
-`-d` - alias for optional `directory`
+`-d` - alias for optional `directory`, where the app will get the images
 
-`-o` - alias for optional `output_type`
+`-o` - alias for optional `output_type`, which can be `csv` or `html`
 
-To run the command with the aliases, run:
+To export the exif data from all images in folder `gps_images` as `html`, run:
 
-`app export -d your_directory -o html`
+`app export -d gps_images -o html`
+
+To export as `csv`, run:
+
+`app export -d gps_images -o csv`
+
+Both these commands will save the output on folder `/output/`. To see the output files, run `cat output/*.*`.
 
 **Tip**: `app help export` provides a full description of the `export` task, including its optional parameters.
 
-### Output
+**Tips[1]**: try running `thor` for seeing all features of Thor.
 
-Both CSV and HTML files are stored in the `output/` folder.
+### Output
 
 The latitude and longitude output values are in the EXIF format. EXIF stores GPS coords as rational64u that can be read like:
 
@@ -56,6 +64,10 @@ The latitude and longitude output values are in the EXIF format. EXIF stores GPS
 
 `[(122/1), (2837/50), (0/1)]</td>` => `Lng:  122° 2837.50' 0"`
 
-### Tests
+### Todo
+
+- [] Add more tests
+- [] Convert gps degrees into coordinates
+- [] Use Design Patterns for creating different types of files
 
 `rake test` run the tests.

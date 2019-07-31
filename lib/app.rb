@@ -21,8 +21,8 @@ module App
     def export
       Dir.mkdir "output/" unless File.exist? "output/"
 
-      output_type = options[:output_type]
-      directory = options[:directory]
+      output_type = options[:output_type] if options
+      directory = options[:directory] if options
 
       images_with_gps = []
       begin
@@ -39,17 +39,17 @@ module App
         create_file(images_with_gps, output_type)
         say "#{output_type} file generated!", :green
       rescue StandardError => e
-        say "#{e.message}", :red
+        raise Exception.new e.message
       end
     end
   end
 end
 
 def validate!(directory, output_type)
-  raise "path #{directory} is not a valid directory, try running 'app help init'" unless Dir.exist?(directory)
+  raise Exception.new "path #{directory} is not a valid directory, try running 'app help init'" unless Dir.exist?(directory)
 
   supported_types = %w(csv html)
-  raise "output #{output_type} not supported, please use 'csv' or 'html' or try running 'app help init'" unless supported_types.include?(output_type)
+  raise Exception.new "output #{output_type} not supported, please use 'csv' or 'html' or try running 'app help init'" unless supported_types.include?(output_type)
 end
 
 def create_file(images, output_type)
